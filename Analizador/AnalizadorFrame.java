@@ -164,6 +164,7 @@ PrintWriter escribir;
             String res="";
             while (true) {
                 Tokens tokens=lexer.yylex();
+           
                 if(tokens==null){
                 res+="\nFIN";
                 result.setText(res);
@@ -171,15 +172,15 @@ PrintWriter escribir;
                 }
                 switch (tokens) {
                     case ERROR:
-                        res+="El simbolo no existe\n";
+                        res+="Simbolo no Identificado\n";
                         break;
                     case Identificador:
                     case Numero:
                     case Reservada:
-                        res+=lexer.lexeme+ " Es "+tokens+"\n";
+                        res+=lexer.lexeme+ " ---> "+tokens+"\n";
                         break;
                     default:
-                       res+="Token: "+tokens+"\n";
+                       res+="Token --> "+tokens+"\n";
                        break;
                 }
             }

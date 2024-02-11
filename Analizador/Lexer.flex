@@ -10,22 +10,25 @@ espacio=[ ,\t,\r,\n]+
 public String lexeme;
 %}
 %%
-int |
-String|
-char|
-float|
-double|
-if |
-else |
-main|
-for|
-break|
-switch|
-do|
-while|
+entero |
+cadena |
+caracter|
+flotante|
+si|
+sino |
+principal|
+ciclo|
+eleccion|
+caso|
+parar|
+presenta|
+haz|
+mientras|
 while {lexeme=yytext(); return Reservada;}
 {espacio} {/*Ignore*/}
 "//".* {/*Ignore*/}
+"/*".*."*/" {/*Ignore*/}
+"'".*."'" {return Cadena;}
 "=" {return Asignacion;}
 "+" {return Suma;}
 "-" {return Resta;}
@@ -37,6 +40,12 @@ while {lexeme=yytext(); return Reservada;}
 "{" {return LlaveApertura;}
 "}" {return LlaveCierre;}
 ";" {return PuntoYComa;}
+">" {return Mayor;}
+"<" {return Menor;}
+">=" {return MayorIgual;}
+"<=" {return MenorIgual;}
+"?" {return OpTernario;}
+":" {return OpSeparacion;}
 
 {L}({L}|{D})* {lexeme=yytext(); return Identificador;}
 ("(-"{D}+")")|{D}+ {lexeme=yytext(); return Numero;}

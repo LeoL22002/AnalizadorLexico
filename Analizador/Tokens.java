@@ -11,6 +11,7 @@ package Analizador;
  */
 public enum Tokens {
     Reservada,
+    Cadena,
     Asignacion,
     Suma,
     Resta,
@@ -24,5 +25,11 @@ public enum Tokens {
     LlaveApertura,
     LlaveCierre,
     PuntoYComa,
+    Mayor,
+    Menor,
+    MayorIgual,
+    MenorIgual,
+    OpTernario,
+    OpSeparacion,
     ERROR
 }
